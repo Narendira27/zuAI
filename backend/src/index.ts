@@ -84,7 +84,8 @@ app.post("/login", async (req, res) => {
 
 // check auth status
 app.get("/me", authenticationMiddleware, (req, res) => {
-  res.status(200).json({ msg: "ok" });
+  // @ts-ignore
+  res.status(200).json({ msg: "ok", id: req.id });
 });
 
 // protected routes
