@@ -112,23 +112,25 @@ const Loader = () => {
 
 const PostCards = ({ data, onClickEditPost, onClickDeletePost }) => {
   return (
-    <div className=" flex flex-col my-4 bg-white rounded-lg p-4">
-      <h1 className="text-md font-bold my-2">
-        <span className="text-slate-500 text-md font-semibold">Title :</span>{" "}
-        {data.title}
-      </h1>
-      <p className="text-md my-2">
-        {" "}
-        <span className=" text-slate-500 font-semibold">
-          Description :
-        </span>{" "}
-        {data.description.slice(0, 150)} ....
-      </p>
-      <p className="text-md my-2">
-        {" "}
-        <span className=" text-slate-500 font-semibold"> Category : </span>
-        {data.category}
-      </p>
+    <div className=" flex flex-col justify-between my-4 bg-white rounded-lg p-4">
+      <div className="flex flex-col">
+        <h1 className="text-md font-bold my-2">
+          <span className="text-slate-500 text-md font-semibold">Title :</span>{" "}
+          {data.title}
+        </h1>
+        <p className="text-md my-2">
+          {" "}
+          <span className=" text-slate-500 font-semibold">
+            Description :
+          </span>{" "}
+          {data.description.slice(0, 150)} ....
+        </p>
+        <p className="text-md my-2">
+          {" "}
+          <span className=" text-slate-500 font-semibold"> Category : </span>
+          {data.category}
+        </p>
+      </div>
       <div className="flex my-2 ">
         <FaEdit
           onClick={() => onClickEditPost(data)}

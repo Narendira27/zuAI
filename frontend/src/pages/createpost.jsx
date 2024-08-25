@@ -4,11 +4,13 @@ import Cookies from "js-cookie";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { ThreeDots } from "react-loader-spinner";
+import { useNavigate } from "react-router-dom";
 
 const CreatePost = () => {
   const [authStatus, setAuthStatus] = useState(false);
   const [postDetails, setPostDetails] = useState({});
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
   useEffect(() => {
     const token = Cookies.get("authToken");
     axios
@@ -29,6 +31,7 @@ const CreatePost = () => {
         { headers: { Authorization: `Bearer ${token}` } }
       );
       toast("Post Created");
+      navigate(0);
       setLoading(false);
     } catch (e) {
       setLoading(false);
